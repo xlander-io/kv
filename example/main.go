@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 
-	"github.com/syndtr/goleveldb/leveldb/util"
 	"github.com/xlander-io/kv/kv_leveldb"
 )
 
@@ -57,7 +56,7 @@ func main() {
 	kvdb.Put([]byte("key111"), []byte("content3"), false)
 	kvdb.Put([]byte("key1111"), []byte("content4"), true)
 
-	iter := db.NewIterator(&util.Range{[]byte("key111"), []byte("key1111")}, nil)
+	iter := kvdb.NewIterator([]byte("key111"), []byte("key1111"))
 	iter.Seek([]byte("key1")) //"keyaaa" "keybbb"
 
 	key := iter.Key()

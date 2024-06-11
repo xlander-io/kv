@@ -6,5 +6,5 @@ type KVDB interface {
 	Delete(key []byte, sync bool) error
 	WriteBatch(batch *Batch, sync bool) error
 	Close() error
-	NewIterator(slice *Range) Iterator
+	NewIterator(start []byte, limit []byte) Iterator
 }

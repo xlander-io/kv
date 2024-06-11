@@ -3,6 +3,7 @@ package kv_leveldb
 import (
 	"github.com/syndtr/goleveldb/leveldb"
 	"github.com/syndtr/goleveldb/leveldb/opt"
+	"github.com/syndtr/goleveldb/leveldb/util"
 	"github.com/xlander-io/kv/kv_interface"
 )
 
@@ -64,6 +65,6 @@ func (db *KV_LEVELDB) WriteBatch(batch *kv_interface.Batch, sync bool) error {
 	}
 }
 
-func (db *KV_LEVELDB) NewIterator(*kv_interface.Range) kv_interface.Iterator {
-
+func (db *KV_LEVELDB) NewIterator(start []byte, limit []byte) kv_interface.Iterator {
+	return db.leveldb.NewIterator(&util.Range{Start: start, Limit: limit}, nil)
 }
