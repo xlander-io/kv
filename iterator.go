@@ -1,4 +1,4 @@
-package kv_interface
+package kv
 
 type Iterator interface {
 

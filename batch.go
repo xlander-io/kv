@@ -1,4 +1,4 @@
-package kv_interface
+package kv
 
 type Batch struct {
 	data map[string][]byte

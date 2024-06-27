@@ -1,4 +1,4 @@
-package kv_interface
+package kv
 
 type KVDB interface {
 	Get(key []byte) (value []byte, err error)
