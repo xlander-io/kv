@@ -24,7 +24,7 @@ func (b *Batch) Loop(callback func(key []byte, value []byte)) {
 	}
 }
 
-func (b *Batch) Exist(key, value []byte) ([]byte, bool) {
+func (b *Batch) Exist(key []byte) ([]byte, bool) {
 	result, ok := b.data[string(key)]
 	if ok {
 		return result, true
