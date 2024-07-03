@@ -15,6 +15,11 @@ func (b *Batch) Put(key, value []byte) {
 }
 
 func (b *Batch) Delete(key []byte) {
+	b.data[string(key)] = nil
+}
+
+// clear the related key_v inside the batch
+func (b *Batch) RemoveBatchItem(key []byte) {
 	delete(b.data, string(key))
 }
 
